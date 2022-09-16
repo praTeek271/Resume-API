@@ -4,7 +4,7 @@ from .views import User_dataCreateView,User_dataUpdate,user_dataAPI,User_dataRet
 from . import views
 urlpatterns = [
     path("", user_dataAPI.as_view(),name='API_list_all'),
-    path("<int:pk>", user_dataAPI.as_view(),name='API_list_one'),
+    path("<int:pk>/", user_dataAPI.as_view(),name='API_list_one'),
     path("delete/<int:pk>/", user_dataAPI.as_view(),name='API_delete'),
     path("update/<str:pram>=<str:udata>/<int:pk>/", user_dataAPI.as_view(),name='API_update'),
     path("UI/", User_dataCreateView.as_view(), name='User_Create_View'),
