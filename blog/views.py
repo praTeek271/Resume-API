@@ -20,7 +20,7 @@ class user_dataAPI(APIView):
                          status=status.HTTP_201_CREATED))
         else:
             return (Response({'msg': 'Not Able to create user_data', 'status': 'Faliure', 'Candidate': serializer.data},
-                             status=status.HTTP_400_BAD_REQUEST))
+                             status=serializer.error_messages))
 
     def get(self, request,pk=None,format=None):
         candidates = user_data.objects.all()
@@ -50,20 +50,28 @@ class user_dataAPI(APIView):
 
             serializer = UserDataSerializers(query_set, many=False)
 
-        return(Response({'status':"Success",'candidate':serializer.data},status=status.HTTP_200_OK))
+        return(Response({'status':"Success DELETED",'candidate':serializer.data},status=status.HTTP_200_OK))
 
     def put(self, request,pram=None ,pk=None,udata=None, format=None):
         candidates = user_data.objects.all()
-        print(f"-----------Value of pk------->{pk}")
+        # print(f"-----------Value of pk------->{pk}")
+        # print(f"-----------Value of udata------->{udata}")
+        # print(f"-----------Value of pram------->{pram}")
         ids_available = [data.id for data in candidates]
 
-        if (pk is not None) and (pk in ids_available) and (pram is not None):
+        if (pk is not None) and (pk in ids_available) and (pram is not None) and (udata is not None):
             query_set = candidates.get(id=pk)
-            query_set.pram=udata
+            if pram=='username':query_set.username=udata
+            if pram=='DOB':query_set.DOB=udata
+            if pram=='gender':query_set.gender=udata
+            if pram=='email':query_set.email=udata
+            if pram=='resume':query_set.resume=udata
+            if pram=='state':query_set.state=udata
+            
             query_set.save()
             serializer = UserDataSerializers(query_set, many=False)
 
-        return (Response({'status': "Success", 'candidate': serializer.data}, status=status.HTTP_202_ACCEPTED))
+        return (Response({'status': "Success uPDATED", 'candidate': serializer.data}, status=status.HTTP_202_ACCEPTED))
 
 
 class User_dataCreateView(generics.ListCreateAPIView):
