@@ -1,7 +1,8 @@
 # Resume-API
   ## Endpoints for thr API
 - `/api/`         For API list view Using Serializer
-- `<id_value>`    For accessing individual Data of 
+- `update/<UPDATE_PARAMETER_NAME>/<UPDATED_DATA>/<ID>/`    For Updateing individual Data at ID
+- `delete/<ID>/`    For Deleting individual Data at ID
 
 <hr>
 
