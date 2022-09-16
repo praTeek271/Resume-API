@@ -8,7 +8,7 @@
 
 ## Images : -
  - ## API END POINTS
-  <img src="https://github.com/praTeek271/Resume-API/blob/master/media/images/api_front_end.png">
+  <img src="https://github.com/praTeek271/Resume-API/blob/master/media/images/end_point_urls.png">
 
  - ## Retriving Data via GUI using GENERIC class
   <img src="https://github.com/praTeek271/Resume-API/blob/master/media/images/data_retrivng_GUI.png">
