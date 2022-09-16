@@ -1,5 +1,5 @@
 # Resume-API
-##Endpoints for thr API
+  ## Endpoints for thr API
 - `/api/`   For API list view Using Serializer
 - 
 
