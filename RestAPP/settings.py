@@ -22,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ''
-
-with open('code_buster\.env') as file:
+with open("RestAPP/.env") as file:
     SECRET_KEY = file.readline().strip('SECRET_KEY=')
 
 
